@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artikel · Journaal Soleil</title>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<!-- Artikeltemplate. Titel, beeld en meta volgen ?p=; de tekst is voorbeeldinhoud. -->
+<body data-page="journaal">
+  <div id="header"></div>
+  <main id="main">
+    <article>
+      <header class="page-top page-top--plain">
+        <div class="wrap wrap--text stack" style="text-align:center">
+          <ol class="crumbs" style="justify-content:center"><li><a href="index.html">Home</a></li><li><a href="journaal.html">Journaal</a></li><li aria-current="page">Artikel</li></ol>
+          <p class="label js-meta"></p>
+          <h1 class="d2 js-title"></h1>
+        </div>
+      </header>
+      <div class="wrap"><div class="photo photo--wide js-img"></div></div>
+      <div class="sec">
+        <div class="wrap wrap--text prose">
+          <p class="lead">Na de zomer krijg ik vaak dezelfde vraag: waarom voelt mijn huid dof en ruw aan?</p>
+          <p>Zon, zout water en chloor laten sporen na. Je huid verdikt de bovenste laag om zich te beschermen, en dat zie je aan een doffe teint en grovere poriën.</p>
+          <h2>Wat een peeling doet</h2>
+          <p>Een peeling verwijdert de dode huidcellen, zodat je verzorging weer kan doordringen tot waar ze moet werken.</p>
+          <div class="btns" style="margin-top:56px;padding-top:40px;border-top:1px solid var(--line)"><a class="btn" href="https://booking.optios.net/18875" target="_blank" rel="noopener">Afspraak maken</a><a class="link" href="behandeling.html?b=gelaatsverzorging">Gelaatsverzorging</a></div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div id="footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script>
+    (function () {
+      const s = new URLSearchParams(location.search).get("p");
+      const p = window.SOLEIL.journal.find((x) => x.slug === s) || window.SOLEIL.journal[0];
+      document.querySelector(".js-title").textContent = p.title;
+      document.querySelector(".js-meta").textContent = p.cat + " · " + window.SoleilDate(p.date);
+      document.querySelector(".js-img").innerHTML = `<img src="assets/img/${p.img}.webp" alt="">`;
+      document.title = p.title + " · Journaal Soleil";
+    })();
+  </script>
+</body>
+</html>

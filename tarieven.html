@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarieven · Instituut Soleil Beervelde</title>
+  <meta name="description" content="Alle prijzen van Instituut Soleil in Beervelde.">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="tarieven">
+  <div id="header"></div>
+
+  <main id="main">
+    <header class="page-top">
+      <div class="wrap stack-lg">
+        <ol class="crumbs"><li><a href="index.html">Home</a></li><li aria-current="page">Tarieven</li></ol>
+        <div class="cols cols--top">
+          <h1 class="d1">Tarieven</h1>
+          <p class="lead" style="align-self:end">Alle prijzen zijn inclusief btw. Een skin consult is gratis bij aankoop van 3 producten.</p>
+        </div>
+      </div>
+    </header>
+
+    <nav class="subnav" aria-label="Categorieën"><ul class="wrap js-sub"></ul></nav>
+    <div class="js-groups"></div>
+  </main>
+
+  <div id="footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script>
+    (function () {
+      const S = window.SOLEIL, sk = (s) => S.skin.find((x) => x.slug === s);
+      const groups = [
+        ["huidanalyse", "Huidanalyse", "huidanalyse.html", S.analyse.map((o) => [o.name, o.duration, o.price])],
+        ["gelaat", "Gelaatsverzorging", sk("gelaatsverzorging").url, sk("gelaatsverzorging").prices],
+        ["huidverbetering", "Huidverbetering", sk("huidverbetering").url, sk("huidverbetering").prices.concat(sk("neo-lift").prices.map((r) => [r[0] === "Neo-Lift" ? "Neo-Lift" : "Neo-Lift · " + r[0].toLowerCase(), r[1], r[2]]))],
+        ["arrangementen", "Arrangementen", "verwennen.html#arrangementen", S.arrangements.map((a) => [a.name + (a.duo ? `<small>Duo €${a.duo}</small>` : ""), a.duration, a.solo])],
+        ["lichaam", "Massage & lichaam", "verwennen.html#lichaam", S.services.lichaam],
+        ["ontharing", "Ontharing", "verwennen.html#ontharing", S.services.ontharing],
+        ["handen", "Handen & voeten", "verwennen.html#handen", S.services.handen],
+        ["makeup", "Make-up", "verwennen.html#makeup", S.services.makeup]
+      ];
+      document.querySelector(".js-sub").innerHTML = groups.map(([id, t]) => `<li><a href="#${id}">${t}</a></li>`).join("");
+      document.querySelector(".js-groups").innerHTML = groups.map(([id, t, url, rows], i) => `
+        <section class="sec sec--tight${i % 2 ? " sec--ivory" : ""}" id="${id}" aria-labelledby="${id}-h">
+          <div class="wrap cols cols--4-8 cols--top">
+            <div class="stack-sm"><h2 class="d3" id="${id}-h">${t}</h2><a class="link" href="${url}">Meer uitleg</a></div>
+            ${window.SoleilPrices(rows)}
+          </div>
+        </section>`).join("");
+      window.SoleilSubnav();
+      if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
+    })();
+  </script>
+</body>
+</html>

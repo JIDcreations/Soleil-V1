@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Behandeling · Instituut Soleil Beervelde</title>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<!-- Template voor de huidbehandelingen: ?b=gelaatsverzorging | huidverbetering | neo-lift -->
+<body data-page="behandelingen">
+  <div id="header"></div>
+
+  <main id="main" data-treatment>
+    <header class="page-top">
+      <div class="wrap cols">
+        <div class="stack">
+          <ol class="crumbs"><li><a href="index.html">Home</a></li><li><a href="behandelingen.html">Behandelingen</a></li><li aria-current="page" data-t="name"></li></ol>
+          <p class="label">Huid</p>
+          <h1 class="d1" data-t="name"></h1>
+          <p class="lead" data-t="intro"></p>
+          <dl class="facts">
+            <div><dt class="label label--muted">Duur</dt><dd data-t="duration"></dd></div>
+            <div><dt class="label label--muted">Prijs</dt><dd data-t="from"></dd></div>
+          </dl>
+          <div class="btns"><a class="btn" href="https://booking.optios.net/18875" target="_blank" rel="noopener">Afspraak maken</a><a class="link" href="#prijzen">Bekijk prijzen</a></div>
+        </div>
+        <div class="frame frame--arch"><div class="photo photo--portrait photo--arch" data-t="img"></div></div>
+      </div>
+    </header>
+
+    <section class="sec" aria-labelledby="voor">
+      <div class="wrap cols cols--4-8 cols--top">
+        <div class="stack-sm reveal"><p class="label">Voor wie</p><h2 class="d3" id="voor">Wanneer kies je hiervoor?</h2></div>
+        <ul class="ticks reveal" data-t="forwho"></ul>
+      </div>
+    </section>
+
+    <section class="sec sec--flush-top" aria-labelledby="verloop">
+      <div class="wrap cols cols--4-8 cols--top">
+        <div class="stack-sm reveal"><p class="label">Verloop</p><h2 class="d3" id="verloop">Hoe het verloopt</h2></div>
+        <p class="statement reveal" style="font-size:clamp(1.6rem,2.6vw,2.2rem)" data-t="what"></p>
+      </div>
+    </section>
+
+    <section class="sec sec--cream" id="prijzen" aria-labelledby="pr">
+      <div class="wrap cols cols--4-8 cols--top">
+        <div class="stack-sm reveal"><p class="label">Tarieven</p><h2 class="d3" id="pr">Prijzen</h2><p class="small muted">Alle prijzen incl. btw.</p></div>
+        <div class="reveal" data-t="prices"></div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="andere">
+      <div class="wrap">
+        <div class="index-head reveal"><h2 class="d3" id="andere">Andere behandelingen</h2><a class="link" href="behandelingen.html">Alle behandelingen</a></div>
+        <div class="index reveal" data-t="others"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer" data-cta="Twijfel je <em>nog</em>?|Start met een huidanalyse. Dan kiezen we samen de juiste behandeling."></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
